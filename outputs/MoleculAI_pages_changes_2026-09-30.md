@@ -25921,7 +25921,7 @@ Flux 2 Pro есть в меню, а текущая /images/models/flux уже в
 
 - Переход работает без циклов; canonical конечной страницы согласован; алиас не включён как самостоятельный документ в sitemap.
 
-**Общие требования:** 
+**Общие требования:**
 
 **Источники:** [moleculai.ru/legal/privacy](https://moleculai.ru/legal/privacy)
 
@@ -25943,7 +25943,7 @@ Flux 2 Pro есть в меню, а текущая /images/models/flux уже в
 
 - Переход работает без циклов; canonical конечной страницы согласован; алиас не включён как самостоятельный документ в sitemap.
 
-**Общие требования:** 
+**Общие требования:**
 
 **Источники:** [moleculai.ru/legal/terms](https://moleculai.ru/legal/terms)
 
@@ -28248,7 +28248,7 @@ Flux 2 Pro есть в меню, а текущая /images/models/flux уже в
 
 - Ссылки открывают актуальную опубликованную версию; нет случайного дубля в sitemap.
 
-**Общие требования:** 
+**Общие требования:**
 
 **Источники:** [moleculai.ru/info/privacy-policy](https://moleculai.ru/info/privacy-policy)
 
@@ -28270,7 +28270,7 @@ Flux 2 Pro есть в меню, а текущая /images/models/flux уже в
 
 - Ссылки открывают актуальную опубликованную версию; нет случайного дубля в sitemap.
 
-**Общие требования:** 
+**Общие требования:**
 
 **Источники:** [moleculai.ru/info/terms-of-use](https://moleculai.ru/info/terms-of-use)
 
@@ -28292,7 +28292,7 @@ Flux 2 Pro есть в меню, а текущая /images/models/flux уже в
 
 - Ссылки открывают актуальную опубликованную версию; нет случайного дубля в sitemap.
 
-**Общие требования:** 
+**Общие требования:**
 
 **Источники:** [moleculai.ru/info/user-agreement](https://moleculai.ru/info/user-agreement)
 
