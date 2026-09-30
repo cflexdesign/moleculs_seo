@@ -1,0 +1,15 @@
+/*
+!/.gitignore
+!/AGENTS.md
+!/README.md
+!/index.html
+!/.nojekyll
+!/outputs/
+.DS_Store
+__pycache__/
+*.pyc
+.env
+.env.*
+*.pem
+*.key
+~$*
