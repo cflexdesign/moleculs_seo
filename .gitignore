@@ -5,6 +5,7 @@
 !/index.html
 !/.nojekyll
 !/outputs/
+!/neyrorating/
 .DS_Store
 __pycache__/
 *.pyc
