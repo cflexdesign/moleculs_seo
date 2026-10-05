@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /*?
+Disallow: /favorites.html
+Disallow: /submit.html
+Sitemap: https://cflexdesign.github.io/moleculs_seo/neyrorating/site/sitemap.xml
