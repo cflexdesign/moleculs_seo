@@ -6,7 +6,7 @@ from pathlib import Path
 from copy import deepcopy
 from collections import defaultdict
 from urllib.parse import urlparse
-import argparse,json,math,re,shutil,html as stdhtml
+import argparse,json,math,re,shutil,gzip,html as stdhtml
 from lxml import html,etree
 from integration import enhance_tree,review_toc
 from molecula_offer import public_offer,render_offer
@@ -60,7 +60,7 @@ def run(args):
     src=Path(args.source).resolve();out=Path(args.out).resolve();base=args.base.rstrip('/')+'/'
     if src==out or src in out.parents:raise SystemExit('Output must be separate from the source site.')
     if out.exists() and any(out.iterdir()) and not args.overwrite:raise SystemExit('Output is not empty. Use a new output folder or --overwrite.')
-    data=json.loads(Path(args.input).read_text());excluded=set(data.get('excluded_ids',[]))|set(args.exclude_pages or []);tools=[t for t in data['tools'] if t['id'] not in excluded];cats=data['categories'];data['tools']=tools
+    input_path=Path(args.input);data=json.loads(gzip.decompress(input_path.read_bytes()).decode('utf-8') if input_path.suffix=='.gz' else input_path.read_text());excluded=set(data.get('excluded_ids',[]))|set(args.exclude_pages or []);tools=[t for t in data['tools'] if t['id'] not in excluded];cats=data['categories'];data['tools']=tools
     if any(not re.fullmatch('[a-z0-9][a-z0-9-]*',slug) for slug in excluded):raise SystemExit('Invalid excluded tool slug')
     if len({t['id'] for t in tools})!=len(tools):raise SystemExit('Duplicate tool IDs')
     if len({c['id'] for c in cats})!=len(cats):raise SystemExit('Duplicate category IDs')
@@ -279,7 +279,13 @@ def run(args):
                     record['content']=(fragment.text or '')+''.join(html.tostring(child,encoding='unicode') for child in fragment)
                 records.append(record)
             public_data[key]=records
-    (out/'catalog-data.json').write_text(json.dumps(public_data,ensure_ascii=False,separators=(',',':')))
+    public_bytes=json.dumps(public_data,ensure_ascii=False,separators=(',',':')).encode('utf-8')
+    if len(public_bytes)>8*1024*1024:
+        (out/'catalog-data.json.gz').write_bytes(gzip.compress(public_bytes,compresslevel=9,mtime=0))
+        (out/'catalog-data.json').unlink(missing_ok=True)
+    else:
+        (out/'catalog-data.json').write_bytes(public_bytes)
+        (out/'catalog-data.json.gz').unlink(missing_ok=True)
     # Strip the removed notice from preserved editorial/collection/utility pages too.
     written_set=set(written)
     for path in out.rglob('*.html'):
