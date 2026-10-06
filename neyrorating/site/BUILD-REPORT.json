@@ -1,0 +1,29 @@
+{
+  "excluded_tool_ids": [],
+  "referenced_assets": 22680,
+  "tools": 16664,
+  "alias_records": 7,
+  "categories": 312,
+  "generated_pages": 17835,
+  "indexable_pages": 17861,
+  "output": "build-final-20261006",
+  "notice_removed": true,
+  "svg_optimization": {
+    "svg_instances_replaced": 435064,
+    "unique_shapes": 47,
+    "saved_bytes": 27276045
+  },
+  "cover_optimization": {
+    "candidate_assets": 65,
+    "converted_assets": 65,
+    "originals_removed": 65,
+    "files_rewritten": 530,
+    "saved_bytes": 18866173,
+    "error_count": 0
+  },
+  "asset_versioning": {
+    "versioned_assets": 7,
+    "html_files_changed": 17871,
+    "references_changed": 524419
+  }
+}
